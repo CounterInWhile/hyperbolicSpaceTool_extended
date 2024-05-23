@@ -441,17 +441,11 @@ class HyperbolicPlane:
         calculates the border values of the scope
         :return: None
         """
-        print("start border calc")
-        print(long(2)*long(21474836480), long(21474836480)*2)
-        print(float(2*long(21474836480)), float(long(21474836480)*2))
         # borders of scope
         self._min_x_value = self._scope_position[0] - float(self.scope[0]) / float(self._x_step_dist*2)
-        print("it starts with one: ", self._min_x_value)
         self._min_y_value = -self._scope_position[1]
         self._max_x_value = self._scope_position[0] + float(self.scope[0]) / float(self._x_step_dist*2)
         self._max_y_value = -self._scope_position[1] + float(self.scope[1]) / float(self._y_step_dist)
-        print("border size: x,y :", self._min_x_value, self._max_x_value)
-        print(self._min_y_value, self._max_y_value)
 
     def _set_step_distance(self):
         """
@@ -515,12 +509,10 @@ class HyperbolicPlane:
             zoom = (self._scope_zoom[0], zoom[1])
         if 2^54 < zoom[1] < 0.05:
             zoom = (zoom[0], self._scope_zoom[1])
-        print("new zoom is: ", zoom)
         self._scope_zoom = zoom
 
         # x,y step distance
         self._set_step_distance()
-        print("new steps are (x,y): ", self._x_step_dist, self._y_step_dist)
 
         # borders of scope
         self._set_border()
